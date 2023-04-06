@@ -16,8 +16,5 @@
 
 
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '10 14 * * *'
+
     
