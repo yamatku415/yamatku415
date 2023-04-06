@@ -20,3 +20,12 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '10 14 * * *'
+    
+name: Git commit
+  run: |
+    git config user.name github-actions[bot]
+    git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+    if [ -n "$(git status --porcelain)" ]
+    then git commit -am 'Generate README.md' && git push origin
+    else echo 'nothing to commit, working tree clean'
+    fi
